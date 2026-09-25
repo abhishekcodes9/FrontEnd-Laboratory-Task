@@ -1,17 +1,15 @@
-/* ---------- Basic ---------- */
-
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f4f7fb;
-    color: #222;
+    background-color: #080b24;
+    color: white;
 }
 
 
 /* ---------- Navbar ---------- */
 
 .space-nav {
-    background-color: #172554;
+    background-color: #11183d;
     padding: 12px 0;
 }
 
@@ -21,16 +19,14 @@ body {
 }
 
 .space-nav .nav-link {
-    color: white;
+    color: #dbe4ff;
     margin-left: 15px;
     position: relative;
     transition: 0.3s;
 }
 
-/* Navbar Hover */
-
 .space-nav .nav-link:hover {
-    color: #93c5fd;
+    color: #64dfff;
 }
 
 .space-nav .nav-link::after {
@@ -38,7 +34,7 @@ body {
     position: absolute;
     width: 0;
     height: 2px;
-    background-color: #60a5fa;
+    background-color: #64dfff;
     left: 50%;
     bottom: 0;
     transition: 0.3s;
@@ -53,27 +49,27 @@ body {
 /* ---------- Hero ---------- */
 
 .hero {
-    background-color: #dbeafe;
+    background-color: #0b1230;
     padding: 90px 0;
 }
 
 .hero h1 {
     font-size: 50px;
-    color: #172554;
     font-weight: bold;
+    color: white;
 }
 
 .hero h1 span {
-    color: #2563eb;
+    color: #64dfff;
 }
 
 .hero p {
-    color: #475569;
+    color: #b9c4e5;
     font-size: 18px;
 }
 
 .subtitle {
-    color: #2563eb !important;
+    color: #64dfff !important;
     font-size: 14px !important;
     font-weight: bold;
 }
@@ -86,7 +82,7 @@ body {
     height: 220px;
     margin: auto;
     border-radius: 50%;
-    background-color: #bfdbfe;
+    background-color: #1d2b64;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -122,8 +118,8 @@ body {
 }
 
 .explore-btn:hover {
-    background-color: #1d4ed8;
-    color: white;
+    background-color: #64dfff;
+    color: #07102f;
     transform: translateY(-3px);
 }
 
@@ -131,69 +127,69 @@ body {
 /* ---------- About ---------- */
 
 .about {
-    background-color: white;
+    background-color: #080b24;
 }
 
 .about h2,
 .missions h2,
 .contact h2 {
-    color: #172554;
+    color: white;
 }
 
 .about > .container > p {
-    color: #475569;
+    color: #aeb9d5;
 }
 
 .info-box {
     padding: 25px;
-    background-color: #f1f5f9;
-    border: 1px solid #d1d5db;
+    background-color: #11183d;
+    border: 1px solid #293566;
     border-radius: 8px;
     transition: 0.3s;
 }
 
 .info-box:hover {
     transform: translateY(-8px);
-    box-shadow: 0 5px 15px #cbd5e1;
-    border-color: #2563eb;
+    box-shadow: 0 5px 15px #02051a;
+    border-color: #64dfff;
 }
 
 .info-box h4 {
     margin-top: 10px;
-    color: #1e3a8a;
+    color: #64dfff;
 }
 
 .info-box p {
-    color: #64748b;
+    color: #aeb9d5;
 }
 
 
 /* ---------- Missions ---------- */
 
 .missions {
-    background-color: #eaf1fb;
+    background-color: #0b1230;
 }
 
 .mission-card {
     padding: 25px;
-    background-color: white;
-    border: 1px solid #d1d5db;
+    background-color: #11183d;
+    border: 1px solid #293566;
     border-radius: 8px;
     transition: 0.3s;
 }
 
 .mission-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 5px 15px #cbd5e1;
-    border-color: #2563eb;
+    box-shadow: 0 5px 15px #02051a;
+    border-color: #64dfff;
 }
 
 .mission-card h3 {
-    color: #1e3a8a;
+    color: #64dfff;
 }
 
 .mission-card p {
-    color: #64748b;
+    color: #aeb9d5;
 }
 
 .mission-card .btn {
@@ -203,14 +199,19 @@ body {
 }
 
 .mission-card .btn:hover {
-    background-color: #1d4ed8;
+    background-color: #64dfff;
+    color: #07102f;
 }
 
 
 /* ---------- Contact ---------- */
 
 .contact {
-    background-color: white;
+    background-color: #080b24;
+}
+
+.contact p {
+    color: #aeb9d5;
 }
 
 .contact-btn {
@@ -224,17 +225,17 @@ body {
 }
 
 .contact-btn:hover {
-    background-color: #1d4ed8;
+    background-color: #64dfff;
+    color: #07102f;
     transform: translateY(-3px);
-    color: white;
 }
 
 
 /* ---------- Footer ---------- */
 
 .footer {
-    background-color: #172554;
-    color: white;
+    background-color: #050719;
+    color: #aeb9d5;
 }
 
 
@@ -243,7 +244,7 @@ body {
 @media (max-width: 991px) {
 
     .space-nav .navbar-toggler {
-        border: 1px solid white;
+        border: 1px solid #64dfff;
     }
 
     .space-nav .navbar-toggler-icon {
@@ -251,7 +252,7 @@ body {
     }
 
     .space-nav .navbar-collapse {
-        background-color: #172554;
+        background-color: #11183d;
         padding: 10px;
         margin-top: 10px;
     }
