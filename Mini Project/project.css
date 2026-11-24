@@ -1,0 +1,156 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 550px;
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.screen {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+h1 {
+    color: #5b55d9;
+    margin-bottom: 15px;
+}
+
+h2 {
+    color: #333;
+    margin: 25px 0;
+    font-size: 22px;
+}
+
+p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #777;
+    margin: 20px 0;
+    font-size: 15px;
+}
+
+button {
+    background: #6258dc;
+    color: white;
+    border: none;
+    padding: 13px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background: #493fc0;
+}
+
+button:disabled {
+    background: #aaa;
+    cursor: not-allowed;
+}
+
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    color: #555;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#timer {
+    color: #e74c3c;
+}
+
+.progress-container {
+    width: 100%;
+    height: 8px;
+    background: #eee;
+    border-radius: 10px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+#progress-bar {
+    width: 0%;
+    height: 100%;
+    background: #6258dc;
+    transition: width 0.3s;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.option {
+    background: #f4f4ff;
+    border: 2px solid #e1e1f5;
+    color: #333;
+    padding: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: left;
+    transition: 0.2s;
+}
+
+.option:hover:not(:disabled) {
+    background: #e9e7ff;
+    border-color: #6258dc;
+}
+
+.option.selected {
+    background: #e4e1ff;
+    border-color: #6258dc;
+}
+
+.option:disabled {
+    cursor: default;
+    opacity: 1;
+}
+
+#score {
+    font-size: 45px;
+    font-weight: bold;
+    color: #6258dc;
+    margin: 20px;
+}
+
+@media (max-width: 500px) {
+    .container {
+        padding: 22px;
+    }
+
+    h2 {
+        font-size: 19px;
+    }
+
+    .quiz-header {
+        font-size: 12px;
+    }
+}
