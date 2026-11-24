@@ -4,52 +4,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuizMaster - Online Quiz</title>
+
+    <title>Student ID Card Generator</title>
+
     <link rel="stylesheet" href="project.css">
 </head>
 <body>
 
+    <header>
+        <h1>Student ID Card Generator</h1>
+        <p>Create your digital student identity card</p>
+    </header>
+
     <div class="container">
 
-        <!-- Start Screen -->
-        <div id="start-screen" class="screen">
-            <h1>QuizMaster</h1>
-            <p>Test your knowledge with our fun quiz!</p>
-            <h3>10 Questions | 4 Options Each</h3>
-            <button id="start-btn">Start Quiz</button>
+        <!-- Student Form -->
+
+        <div class="form-box">
+
+            <h2>Enter Student Details</h2>
+
+            <form id="student-form">
+
+                <label>Student Name</label>
+                <input type="text" id="name"
+                    placeholder="Enter your name" required>
+
+                <label>Roll Number</label>
+                <input type="text" id="roll"
+                    placeholder="Enter roll number" required>
+
+                <label>Course</label>
+                <input type="text" id="course"
+                    placeholder="e.g. B.Tech CSE" required>
+
+                <label>Year</label>
+                <select id="year" required>
+                    <option value="">Select Year</option>
+                    <option value="1st Year">1st Year</option>
+                    <option value="2nd Year">2nd Year</option>
+                    <option value="3rd Year">3rd Year</option>
+                    <option value="4th Year">4th Year</option>
+                </select>
+
+                <label>Email Address</label>
+                <input type="email" id="email"
+                    placeholder="Enter email address" required>
+
+                <button type="submit">Generate ID Card</button>
+
+            </form>
+
         </div>
 
-        <!-- Quiz Screen -->
-        <div id="quiz-screen" class="screen hidden">
+        <!-- Generated ID Card -->
 
-            <div class="quiz-header">
-                <span id="question-number">Question 1/10</span>
-                <span id="timer">Time: 60s</span>
+        <div class="card-box" id="card-box">
+
+            <h2>Your Student ID Card</h2>
+
+            <div class="id-card">
+
+                <div class="card-header">
+                    <h3>ABC COLLEGE</h3>
+                    <p>STUDENT IDENTITY CARD</p>
+                </div>
+
+                <div class="avatar" id="avatar">
+                    ?
+                </div>
+
+                <h2 id="display-name">Student Name</h2>
+
+                <div class="details">
+                    <p><strong>Roll No:</strong>
+                        <span id="display-roll">---</span>
+                    </p>
+
+                    <p><strong>Course:</strong>
+                        <span id="display-course">---</span>
+                    </p>
+
+                    <p><strong>Year:</strong>
+                        <span id="display-year">---</span>
+                    </p>
+
+                    <p><strong>Email:</strong>
+                        <span id="display-email">---</span>
+                    </p>
+                </div>
+
+                <div class="card-footer">
+                    <p>VALID STUDENT IDENTITY</p>
+                </div>
+
             </div>
 
-            <div class="progress-container">
-                <div id="progress-bar"></div>
-            </div>
+            <button id="reset-btn" class="reset-btn" type="button">
+                Create Another ID
+            </button>
 
-            <h2 id="question">Question appears here</h2>
-
-            <div id="options" class="options"></div>
-
-            <button id="next-btn" disabled>Next Question</button>
-
-        </div>
-
-        <!-- Result Screen -->
-        <div id="result-screen" class="screen hidden">
-            <h1>Quiz Completed!</h1>
-            <h2>Your Score</h2>
-            <div id="score">0/10</div>
-            <p id="message"></p>
-            <button id="restart-btn">Play Again</button>
         </div>
 
     </div>
 
+    <footer>
+        <p>Student ID Card Generator | Mini Project</p>
+    </footer>
+
     <script src="project.js"></script>
+
 </body>
 </html>

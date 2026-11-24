@@ -7,150 +7,168 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.container {
-    width: 100%;
-    max-width: 550px;
-    background: white;
-    padding: 35px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
-
-.screen {
-    text-align: center;
-}
-
-.hidden {
-    display: none;
-}
-
-h1 {
-    color: #5b55d9;
-    margin-bottom: 15px;
-}
-
-h2 {
+    background: #f2f3fa;
     color: #333;
-    margin: 25px 0;
-    font-size: 22px;
 }
 
-p {
-    color: #666;
-    margin-bottom: 20px;
-}
 
-h3 {
-    color: #777;
-    margin: 20px 0;
-    font-size: 15px;
-}
-
-button {
-    background: #6258dc;
+header {
+    background: #5145cd;
     color: white;
-    border: none;
-    padding: 13px 25px;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 20px;
+    text-align: center;
+    padding: 30px 15px;
 }
 
-button:hover {
-    background: #493fc0;
+header h1 {
+    margin-bottom: 10px;
 }
 
-button:disabled {
-    background: #aaa;
-    cursor: not-allowed;
-}
-
-.quiz-header {
-    display: flex;
-    justify-content: space-between;
-    color: #555;
-    font-weight: bold;
+header p {
     font-size: 14px;
 }
 
-#timer {
-    color: #e74c3c;
-}
 
-.progress-container {
-    width: 100%;
-    height: 8px;
-    background: #eee;
-    border-radius: 10px;
-    margin-top: 20px;
-    overflow: hidden;
-}
-
-#progress-bar {
-    width: 0%;
-    height: 100%;
-    background: #6258dc;
-    transition: width 0.3s;
-}
-
-.options {
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
     display: flex;
-    flex-direction: column;
-    gap: 12px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
 }
 
-.option {
-    background: #f4f4ff;
-    border: 2px solid #e1e1f5;
-    color: #333;
-    padding: 14px;
-    border-radius: 8px;
-    cursor: pointer;
-    text-align: left;
-    transition: 0.2s;
+
+.form-box,
+.card-box {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    width: 50%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
-.option:hover:not(:disabled) {
-    background: #e9e7ff;
-    border-color: #6258dc;
+.form-box h2,
+.card-box h2 {
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-.option.selected {
-    background: #e4e1ff;
-    border-color: #6258dc;
-}
-
-.option:disabled {
-    cursor: default;
-    opacity: 1;
-}
-
-#score {
-    font-size: 45px;
+label {
+    display: block;
+    margin: 12px 0 7px;
     font-weight: bold;
-    color: #6258dc;
-    margin: 20px;
 }
 
-@media (max-width: 500px) {
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+button {
+    width: 100%;
+    padding: 13px;
+    margin-top: 20px;
+    background: #5145cd;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #3930a5;
+}
+
+
+.id-card {
+    background: white;
+    border: 2px solid #5145cd;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.card-header {
+    background: #5145cd;
+    color: white;
+    padding: 20px 10px;
+}
+
+.card-header h3 {
+    margin-bottom: 7px;
+}
+
+.card-header p {
+    font-size: 12px;
+}
+
+
+.avatar {
+    width: 85px;
+    height: 85px;
+    background: #e6e2ff;
+    color: #5145cd;
+    border-radius: 50%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#display-name {
+    color: #5145cd;
+    margin-bottom: 15px;
+}
+
+.details {
+    text-align: left;
+    padding: 0 20px;
+}
+
+.details p {
+    margin: 13px 0;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.card-footer {
+    background: #f0efff;
+    color: #5145cd;
+    padding: 13px;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+
+.reset-btn {
+    background: #333;
+}
+
+.reset-btn:hover {
+    background: #555;
+}
+
+
+
+@media (max-width: 700px) {
+
     .container {
-        padding: 22px;
+        flex-direction: column;
+        align-items: center;
     }
 
-    h2 {
-        font-size: 19px;
+    .form-box,
+    .card-box {
+        width: 100%;
     }
 
-    .quiz-header {
-        font-size: 12px;
-    }
 }

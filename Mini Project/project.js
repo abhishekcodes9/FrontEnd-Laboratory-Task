@@ -1,221 +1,66 @@
 
-// Quiz Questions
-const questions = [
-    {
-        question: "What does HTML stand for?",
-        options: [
-            "Hyper Text Markup Language",
-            "High Text Machine Language",
-            "Hyper Tool Multi Language",
-            "Home Text Markup Language"
-        ],
-        answer: 0
-    },
-    {
-        question: "Which language is used for styling web pages?",
-        options: ["Java", "CSS", "Python", "C++"],
-        answer: 1
-    },
-    {
-        question: "Which keyword declares a variable in JavaScript?",
-        options: ["int", "string", "let", "float"],
-        answer: 2
-    },
-    {
-        question: "Which HTML tag creates a hyperlink?",
-        options: ["<p>", "<a>", "<h1>", "<img>"],
-        answer: 1
-    },
-    {
-        question: "Which symbol is used for comments in CSS?",
-        options: ["//", "<!-- -->", "/* */", "#"],
-        answer: 2
-    },
-    {
-        question: "Which method displays a message in the console?",
-        options: [
-            "console.log()",
-            "print()",
-            "display()",
-            "show()"
-        ],
-        answer: 0
-    },
-    {
-        question: "Which HTML tag is used to add an image?",
-        options: ["<image>", "<pic>", "<img>", "<src>"],
-        answer: 2
-    },
-    {
-        question: "Which operator checks strict equality in JavaScript?",
-        options: ["=", "==", "===", "!="],
-        answer: 2
-    },
-    {
-        question: "Which CSS property changes text color?",
-        options: ["background", "font-size", "color", "text-style"],
-        answer: 2
-    },
-    {
-        question: "Which keyword is used to define a function?",
-        options: ["function", "method", "define", "create"],
-        answer: 0
-    }
-];
+// Get HTML Elements
 
-// Variables
-let currentQuestion = 0;
-let score = 0;
-let timeLeft = 60;
-let timerInterval;
-let selected = false;
+const form = document.getElementById("student-form");
 
-// HTML Elements
-const startScreen = document.getElementById("start-screen");
-const quizScreen = document.getElementById("quiz-screen");
-const resultScreen = document.getElementById("result-screen");
+const cardBox = document.getElementById("card-box");
 
-const startBtn = document.getElementById("start-btn");
-const nextBtn = document.getElementById("next-btn");
-const restartBtn = document.getElementById("restart-btn");
+const resetBtn = document.getElementById("reset-btn");
 
-const questionNumber = document.getElementById("question-number");
-const questionText = document.getElementById("question");
-const optionsContainer = document.getElementById("options");
 
-const timer = document.getElementById("timer");
-const progressBar = document.getElementById("progress-bar");
+// Generate ID Card
 
-// Start Quiz
-startBtn.addEventListener("click", startQuiz);
+form.addEventListener("submit", function(event) {
 
-function startQuiz() {
-    currentQuestion = 0;
-    score = 0;
-    timeLeft = 60;
+    // Stop page from refreshing
+    event.preventDefault();
 
-    startScreen.classList.add("hidden");
-    resultScreen.classList.add("hidden");
-    quizScreen.classList.remove("hidden");
+    // Get values from input fields
 
-    showQuestion();
+    const name = document.getElementById("name").value.trim();
 
-    timerInterval = setInterval(function() {
-        timeLeft--;
-        timer.innerText = "Time: " + timeLeft + "s";
+    const roll = document.getElementById("roll").value.trim();
 
-        if (timeLeft <= 0) {
-            clearInterval(timerInterval);
-            showResult();
-        }
-    }, 1000);
-}
+    const course = document.getElementById("course").value.trim();
 
-// Display Question
-function showQuestion() {
-    selected = false;
-    nextBtn.disabled = true;
+    const year = document.getElementById("year").value;
 
-    const q = questions[currentQuestion];
+    const email = document.getElementById("email").value.trim();
 
-    questionNumber.innerText =
-        "Question " + (currentQuestion + 1) + "/" + questions.length;
 
-    questionText.innerText = q.question;
+    // Display details on ID Card
 
-    progressBar.style.width =
-        (currentQuestion / questions.length) * 100 + "%";
+    document.getElementById("display-name").innerText = name;
 
-    optionsContainer.innerHTML = "";
+    document.getElementById("display-roll").innerText = roll;
 
-    q.options.forEach(function(option, index) {
+    document.getElementById("display-course").innerText = course;
 
-        const button = document.createElement("button");
+    document.getElementById("display-year").innerText = year;
 
-        button.innerText = option;
-        button.classList.add("option");
+    document.getElementById("display-email").innerText = email;
 
-        button.addEventListener("click", function() {
-            selectAnswer(index, button);
-        });
 
-        optionsContainer.appendChild(button);
-    });
-}
+    // Generate Automatic Initials
 
-// Check Selected Answer
-function selectAnswer(index, button) {
-    if (selected) return;
+    const initials = name.substring(0, 2).toUpperCase();
 
-    selected = true;
+    document.getElementById("avatar").innerText = initials;
 
-    const correctAnswer = questions[currentQuestion].answer;
 
-    if (index === correctAnswer) {
-        score++;
-    }
+    // Show ID Card
 
-    const allOptions = document.querySelectorAll(".option");
-
-    allOptions.forEach(function(option, i) {
-        option.disabled = true;
-
-        if (i === correctAnswer) {
-            option.style.background = "#d4edda";
-            option.style.borderColor = "#28a745";
-        } else if (i === index) {
-            option.style.background = "#f8d7da";
-            option.style.borderColor = "#dc3545";
-        }
-    });
-
-    nextBtn.disabled = false;
-}
-
-// Next Question
-nextBtn.addEventListener("click", function() {
-
-    currentQuestion++;
-
-    if (currentQuestion < questions.length) {
-        showQuestion();
-    } else {
-        showResult();
-    }
+    cardBox.style.display = "block";
 
 });
 
-// Show Final Result
-function showResult() {
-    clearInterval(timerInterval);
 
-    quizScreen.classList.add("hidden");
-    resultScreen.classList.remove("hidden");
+// Reset Form
 
-    progressBar.style.width = "100%";
+resetBtn.addEventListener("click", function() {
 
-    document.getElementById("score").innerText =
-        score + "/" + questions.length;
+    form.reset();
 
-    let percentage = (score / questions.length) * 100;
+    cardBox.style.display = "none";
 
-    let message = "";
-
-    if (percentage >= 80) {
-        message = "Excellent! Great job!";
-    } else if (percentage >= 50) {
-        message = "Good effort! Keep practicing.";
-    } else {
-        message = "Keep learning and try again!";
-    }
-
-    document.getElementById("message").innerText =
-        message + " Your percentage: " + percentage + "%";
-}
-
-// Restart Quiz
-restartBtn.addEventListener("click", function() {
-    clearInterval(timerInterval);
-    resultScreen.classList.add("hidden");
-    startScreen.classList.remove("hidden");
 });
